@@ -1,0 +1,10 @@
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\bin\Debug\EjerciciosLogica.exe.config
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\bin\Debug\EjerciciosLogica.exe
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\bin\Debug\EjerciciosLogica.pdb
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\obj\Debug\EjerciciosLogica.csproj.AssemblyReference.cache
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\obj\Debug\EjerciciosLogica.csproj.CoreCompileInputs.cache
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\obj\Debug\Ejercici.9A35852F.Up2Date
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\obj\Debug\EjerciciosLogica.exe
+C:\Users\ROBER\Desktop\Prueba Group meet\Logica\obj\Debug\EjerciciosLogica.pdb
