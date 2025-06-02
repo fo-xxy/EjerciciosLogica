@@ -22,8 +22,8 @@ namespace EjerciciosLogica
         //public string obj = "[[1, 2], [2, 4]]";
         //public string obj = "[[1, 2],[2, 4],[2, 4]]";
         //public string obj ="[[[3, 4],[6, 5]]]" ;
-        //public string obj ="[[[1, 2, 3]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3], [2, 3]]] ";
-        public string objMatrix ="[[[1, 2, 3], [2, 3, 4]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3]]]";
+        public string obj ="[[[1, 2, 3]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3], [2, 3]]] ";
+        //public string objMatrix ="[[[1, 2, 3], [2, 3, 4]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3]]]";
 
 
 
@@ -31,19 +31,21 @@ namespace EjerciciosLogica
         {
             Program p = new Program();
 
-            p.ObtenerDimension();
+           // p.ObtenerDimension();
+
+            p.ValidarCantidadMatrix();
         }
 
         public void ObtenerDimension()
         {
             // Esta línea valida que todas las matrices estén bien formadas, asegurando que por cada '[' haya un ']' correspondiente.
             // asi extrae únicamente las partes válidas del texto para procesarlas correctamente.
-            var matches = Regex.Matches(objMatrix, @"\[\s*(?:\[(?:\[(?:[^\[\]]|(?<open>\[)|(?<-open>\]))*\]|[^\[\]]*)\]\s*,?\s*)+\](?(open)(?!))");
+            var matches = Regex.Matches(obj, @"\[\s*(?:\[(?:\[(?:[^\[\]]|(?<open>\[)|(?<-open>\]))*\]|[^\[\]]*)\]\s*,?\s*)+\](?(open)(?!))");
 
             try
             {
                 // Intentar parsear directamente el string completo
-                var jsonFormateado = JsonConvert.DeserializeObject<object>(objMatrix);
+                var jsonFormateado = JsonConvert.DeserializeObject<object>(obj);
 
                 //Pasamos el objeto al constructor de la clase MatrixInt
                 matrixInt = new MatrixInt(jsonFormateado);
@@ -53,6 +55,31 @@ namespace EjerciciosLogica
 
                 //Imprimimos el resultado.
                 Console.WriteLine($"Dimensión: {dim}");
+            }
+            catch (Exception ex)
+            {
+                //Si llega a salir un error nos mostrará este mensaje con el error.
+                Console.WriteLine("Error al parsear la matriz completa.");
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void ValidarCantidadMatrix()
+        {
+            var matches = Regex.Matches(obj, @"\[\s*(?:\[(?:\[(?:[^\[\]]|(?<open>\[)|(?<-open>\]))*\]|[^\[\]]*)\]\s*,?\s*)+\](?(open)(?!))");
+
+            try
+            {
+                var jsonFormateado = JsonConvert.DeserializeObject<object>(obj);
+
+                //Pasamos el objeto al constructor de la clase MatrixInt
+                matrixInt = new MatrixInt(jsonFormateado);
+
+                //Asignamos el resultado a una variable local para obtener el resultado del tamaño
+                bool tamanio = matrixInt.straight(jsonFormateado);
+
+                //Imprimimos el resultado.
+                Console.WriteLine($"Tamaño: {tamanio}");
             }
             catch (Exception ex)
             {
