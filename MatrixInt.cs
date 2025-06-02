@@ -18,7 +18,8 @@ namespace EjerciciosLogica
             this.MyMatrix = matrix;
 
            // dimension();
-            straight(MyMatrix);
+           // straight(MyMatrix);
+            compute();
         }
 
         #region Metodos
@@ -116,9 +117,51 @@ namespace EjerciciosLogica
 
         public int compute()
         {
-            return 0;
+            return SumaMatrix(MyMatrix);
         }
 
+        public int SumaMatrix(object obj)
+        {
+            //Se declara la variable local que contendrá la suma de los elementos
+            int suma = 0;
+
+            //Itineramos el objeto 
+            if (obj is IList list)
+            {
+                //Recorremos la lista y sumamos los valores
+                foreach (var item in list)
+                {
+                    suma += SumaMatrix(item);
+                }
+            }
+            else
+            {
+                //Validamos si el objeto solo es un numero y lo sumamos al contador
+                if (obj is int numero)
+                {
+                    suma += numero;
+                }
+                else
+                {
+                    try
+                    {
+                        // Solo intentamos convertir si implementa IConvertible
+                        if (obj is IConvertible)
+                        {
+                            suma += Convert.ToInt32(obj);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Console.WriteLine("Hubo un error al sumar los valores.");
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+            return suma;
+        }
         #endregion
     }
 
