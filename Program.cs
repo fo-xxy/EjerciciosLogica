@@ -13,6 +13,7 @@ namespace EjerciciosLogica
     internal class Program
     {
         public MatrixInt matrixInt;
+        public MatrixString matrixString;
         //public string obj = "[[[1, 2,3]], [[5, 6, 7],[5, 4, 3]], [[3, 5, 6], [4, 8, 3], [2, 3]]]";
         //public string obj = " [[[1, 2, 3], [2, 3, 4]], [[5, 6, 7], [5, 4, 3]], [[3,5, 6], [4, 8, 3]]]";
         //public string obj = "  [1,2]";
@@ -23,17 +24,26 @@ namespace EjerciciosLogica
         //public string obj = "[[1, 2],[2, 4],[2, 4]]";
         //public string obj ="[[[3, 4],[6, 5]]]" ;
         //public string obj ="[[[1, 2, 3]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3], [2, 3]]] ";
-        public string obj = "[[[1, 2, 3], [2, 3, 4]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3]]]";
+        //public string obj = "[[[1, 2, 3], [2, 3, 4]], [[5, 6, 7], [5, 4, 3]], [[3, 5, 6], [4, 8, 3]]]";
+
+
+        //public string obj = "Hello world";
+        //public string obj = "2 + 10 / 2 - 20";
+        //public string obj = "(2 + 10) / 2 - 20";
+        public string obj = "(2 + 10 / 2 - 20"; 
+
+
 
         static void Main(string[] args)
         {
             Program p = new Program();
 
-           // p.ObtenerDimension();
+            // p.ObtenerDimension();
 
             //p.ValidarCantidadMatrix();
 
-            p.SumaMatrix();
+            // p.SumaMatrix();
+            p.RetornarString();
         }
 
         public void ObtenerDimension()
@@ -89,7 +99,6 @@ namespace EjerciciosLogica
             }
         }
 
-
         public void SumaMatrix()
         {
             // Esta línea valida que todas las matrices estén bien formadas, asegurando que por cada '[' haya un ']' correspondiente.
@@ -113,6 +122,13 @@ namespace EjerciciosLogica
                 Console.WriteLine("Error al parsear la matriz completa.");
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        public void RetornarString()
+        {
+            matrixString = new MatrixString(obj);
+
+            bool stringReturn = matrixString.retrurnString(obj);
         }
     }
 }
